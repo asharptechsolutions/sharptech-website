@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Brain, Code, Rocket, ArrowRight, Sparkles, Cpu, BarChart3 } from "lucide-react";
+import { Brain, Code, Rocket, ArrowRight, Sparkles, Cpu, BarChart3, Quote, Star } from "lucide-react";
 
 const highlights = [
   { icon: Brain, title: "AI Strategy", desc: "We help you identify where AI creates real value — not hype." },
@@ -84,6 +84,61 @@ export default function Home() {
               </CardContent>
             </Card>
           ))}
+        </div>
+      </section>
+
+      {/* Testimonials / Social Proof */}
+      <section className="bg-muted/30 border-y">
+        <div className="container mx-auto px-4 py-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">What People Say</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Real feedback from founders and teams we&apos;ve worked with.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                quote: "SharpTech took our booking idea from napkin sketch to live product in under two weeks. The AI-powered features they suggested made all the difference.",
+                name: "Salon Owner",
+                role: "SpotBookie Early Adopter",
+                stars: 5,
+              },
+              {
+                quote: "Their autonomous development pipeline is unlike anything I've seen. We got a polished MVP with auth, payments, and a real UI — not a hackathon prototype.",
+                name: "Startup Founder",
+                role: "App Factory Client",
+                stars: 5,
+              },
+              {
+                quote: "Fast, opinionated, and they actually ship. No endless meetings or scope creep. Just working software, deployed and ready to go.",
+                name: "Solo Entrepreneur",
+                role: "Custom App Build",
+                stars: 5,
+              },
+            ].map((t) => (
+              <Card key={t.name} className="border-2 hover:border-primary/50 transition-colors">
+                <CardContent className="pt-6 pb-6 space-y-4">
+                  <Quote className="h-8 w-8 text-primary/30" />
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t.quote}</p>
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: t.stars }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="flex justify-center mt-10 gap-8 opacity-40">
+            {["Next.js", "Firebase", "Stripe", "Tailwind CSS", "TypeScript"].map((tech) => (
+              <span key={tech} className="text-sm font-medium tracking-wide">{tech}</span>
+            ))}
+          </div>
         </div>
       </section>
 
