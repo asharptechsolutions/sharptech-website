@@ -10,9 +10,9 @@ const highlights = [
 ];
 
 const stats = [
-  { icon: Sparkles, value: "5+", label: "Apps Deployed" },
-  { icon: Cpu, value: "AI-First", label: "Development" },
-  { icon: BarChart3, value: "Fast", label: "Turnaround" },
+  { icon: Sparkles, value: "7", label: "Apps Shipped" },
+  { icon: Cpu, value: "24hr", label: "Idea → MVP" },
+  { icon: BarChart3, value: "100%", label: "AI-Powered" },
 ];
 
 export default function Home() {
