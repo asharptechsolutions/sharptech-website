@@ -40,7 +40,7 @@ function BlogPostContent() {
   return (
     <div className="max-w-3xl mx-auto">
       <Button asChild variant="ghost" className="mb-6">
-        <Link href="/sharptech-website/blog"><ArrowLeft className="h-4 w-4 mr-2" /> Back to Blog</Link>
+        <Link href="/blog"><ArrowLeft className="h-4 w-4 mr-2" /> Back to Blog</Link>
       </Button>
 
       <article className="space-y-6">

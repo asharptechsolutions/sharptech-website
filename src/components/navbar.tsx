@@ -8,10 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 const links = [
-  { href: "/sharptech-website/", label: "Home" },
-  { href: "/sharptech-website/services", label: "Services" },
-  { href: "/sharptech-website/blog", label: "Blog" },
-  { href: "/sharptech-website/contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -25,7 +26,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/sharptech-website/" className="flex items-center gap-2 font-bold text-xl">
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
           <Zap className="h-6 w-6 text-primary" />
           <span>SharpTech<span className="text-primary">.ai</span></span>
         </Link>

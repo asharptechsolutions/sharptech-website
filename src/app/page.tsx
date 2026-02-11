@@ -37,12 +37,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg">
-                <Link href="/sharptech-website/contact">
+                <Link href="/contact">
                   Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/sharptech-website/services">Our Services</Link>
+                <Link href="/services">Our Services</Link>
               </Button>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Home() {
             Whether you need an AI strategy, a custom app, or both — let&apos;s talk.
           </p>
           <Button asChild variant="secondary" size="lg">
-            <Link href="/sharptech-website/contact">Contact Us <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link href="/contact">Contact Us <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </section>

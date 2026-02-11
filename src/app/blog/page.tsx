@@ -58,7 +58,7 @@ export default function BlogPage() {
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {posts.map((post) => (
-            <Link key={post.id} href={`/sharptech-website/blog/post?id=${post.id}`}>
+            <Link key={post.id} href={`/blog/post?id=${post.id}`}>
               <Card className="h-full hover:border-primary/50 transition-colors cursor-pointer">
                 <CardHeader>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
