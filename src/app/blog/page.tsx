@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { collection, query, orderBy, getDocs, where } from "firebase/firestore";
+import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,11 +27,14 @@ export default function BlogPage() {
       try {
         const q = query(
           collection(db, "st_blog_posts"),
-          where("published", "==", true),
           orderBy("publishedAt", "desc")
         );
         const snap = await getDocs(q);
-        setPosts(snap.docs.map((d) => ({ id: d.id, ...d.data() } as BlogPost)));
+        setPosts(
+          snap.docs
+            .map((d) => ({ id: d.id, ...d.data() } as BlogPost & { published?: boolean }))
+            .filter((p) => p.published !== false) as BlogPost[]
+        );
       } catch (e) {
         console.error(e);
       }
