@@ -19,34 +19,67 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+      <section className="relative overflow-hidden min-h-[80vh] flex items-center">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/5" />
+        
+        {/* Floating decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Grid pattern */}
+          <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+            backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }} />
+          
+          {/* Floating orbs */}
+          <div className="absolute top-1/4 left-[10%] w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-[10%] w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          
+          {/* Decorative icons floating */}
+          <div className="hidden md:block absolute top-[15%] right-[15%] text-primary/10 animate-bounce" style={{ animationDuration: '3s' }}>
+            <Code className="h-16 w-16" />
+          </div>
+          <div className="hidden md:block absolute bottom-[20%] left-[12%] text-primary/10 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+            <Brain className="h-20 w-20" />
+          </div>
+          <div className="hidden md:block absolute top-[30%] left-[20%] text-primary/10 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}>
+            <Sparkles className="h-12 w-12" />
+          </div>
+          <div className="hidden md:block absolute bottom-[30%] right-[20%] text-primary/10 animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }}>
+            <Rocket className="h-14 w-14" />
+          </div>
+        </div>
+
         <div className="container mx-auto px-4 py-20 md:py-32 relative">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium bg-background">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 px-4 py-1.5 text-sm font-medium bg-background/80 backdrop-blur-sm shadow-sm">
               <Sparkles className="h-4 w-4 text-primary" />
               AI-Powered Development
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
               Build Smarter.<br />
-              <span className="text-primary">Ship Faster.</span>
+              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">Ship Faster.</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               SharpTech.ai builds AI-powered solutions and custom applications for businesses
               that want to move at the speed of innovation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+              <Button asChild size="lg" className="shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-shadow text-base px-8">
                 <Link href="/contact">
                   Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="text-base px-8">
                 <Link href="/services">Our Services</Link>
               </Button>
             </div>
           </div>
         </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Stats */}
