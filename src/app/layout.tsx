@@ -43,6 +43,14 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [`${siteUrl}/og-image.png`],
   },
+  icons: {
+    icon: [
+      { url: `${siteUrl}/icon.svg`, type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: `${siteUrl}/icon.svg`, type: "image/svg+xml" },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
