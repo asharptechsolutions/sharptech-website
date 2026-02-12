@@ -6,7 +6,8 @@ import { db } from "@/lib/firebase";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BookOpen, Calendar, Settings } from "lucide-react";
 
 interface BlogPost {
   id: string;
@@ -45,6 +46,13 @@ export default function BlogPage() {
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
           Insights on AI, software development, and building products that matter.
         </p>
+        <div className="mt-4">
+          <Link href="/blog/admin">
+            <Button variant="outline" size="sm">
+              <Settings className="h-4 w-4 mr-2" /> Manage Posts
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {loading ? (
