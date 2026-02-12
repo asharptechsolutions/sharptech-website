@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Plus, Trash2, LogIn, FileText, Pencil, X } from "lucide-react";
+import { Plus, Trash2, LogIn, FileText, Pencil, X, Eye, EyeOff } from "lucide-react";
 import { MarkdownEditor } from "@/components/markdown-editor";
 
 interface BlogPost {
@@ -38,7 +38,7 @@ export default function BlogAdminPage() {
     content: "",
     tags: "",
     author: "",
-    published: true,
+    published: false,
   };
 
   const [form, setForm] = useState(emptyForm);
@@ -121,6 +121,14 @@ export default function BlogAdminPage() {
       console.error(err);
     }
     setSaving(false);
+  };
+
+  const handleTogglePublish = async (id: string, currentlyPublished: boolean) => {
+    await updateDoc(doc(db, "st_blog_posts", id), { 
+      published: !currentlyPublished,
+      ...(!currentlyPublished ? { publishedAt: serverTimestamp() } : {})
+    });
+    loadPosts();
   };
 
   const handleDelete = async (id: string) => {
@@ -216,6 +224,9 @@ export default function BlogAdminPage() {
                 <Badge variant={p.published ? "default" : "secondary"}>
                   {p.published ? "Published" : "Draft"}
                 </Badge>
+                <Button variant="ghost" size="icon" title={p.published ? "Unpublish" : "Publish"} onClick={() => handleTogglePublish(p.id, p.published)}>
+                  {p.published ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4 text-green-600" />}
+                </Button>
                 <Button variant="ghost" size="icon" onClick={() => handleEdit(p.id)}>
                   <Pencil className="h-4 w-4" />
                 </Button>
