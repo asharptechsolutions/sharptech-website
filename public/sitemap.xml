@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://asharptechsolutions.github.io/sharptech-website/</loc><priority>1.0</priority></url>
+  <url><loc>https://asharptechsolutions.github.io/sharptech-website/services</loc><priority>0.8</priority></url>
+  <url><loc>https://asharptechsolutions.github.io/sharptech-website/portfolio</loc><priority>0.8</priority></url>
+  <url><loc>https://asharptechsolutions.github.io/sharptech-website/about</loc><priority>0.7</priority></url>
+  <url><loc>https://asharptechsolutions.github.io/sharptech-website/blog</loc><priority>0.6</priority></url>
+  <url><loc>https://asharptechsolutions.github.io/sharptech-website/contact</loc><priority>0.6</priority></url>
+</urlset>

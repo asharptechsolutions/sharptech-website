@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn about SharpTech.ai — our mission, team, and how we ship AI-powered apps from idea to production in 24 hours.",
+};
 import {
   Zap,
   Target,

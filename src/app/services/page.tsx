@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Code, Wrench, BarChart3, Shield, Lightbulb } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description: "AI consulting, custom app development, and rapid MVP deployment. SharpTech.ai builds AI-powered solutions for businesses ready to move fast.",
+};
 
 const services = [
   {
