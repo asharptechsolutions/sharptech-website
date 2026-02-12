@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Plus, Trash2, LogIn, FileText, Pencil, X } from "lucide-react";
+import { MarkdownEditor } from "@/components/markdown-editor";
 
 interface BlogPost {
   id: string;
@@ -174,7 +175,12 @@ export default function BlogAdminPage() {
             <Input placeholder="Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
             <Input placeholder="Author (optional)" value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })} />
             <Input placeholder="Excerpt (short summary)" value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} required />
-            <Textarea placeholder="Content (HTML supported)" rows={10} value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} required />
+            <MarkdownEditor
+              value={form.content}
+              onChange={(val) => setForm({ ...form, content: val })}
+              placeholder="Write your post content in Markdown..."
+              rows={14}
+            />
             <Input placeholder="Tags (comma-separated)" value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} />
             <div className="flex items-center gap-4">
               <Button type="submit" disabled={saving}>
