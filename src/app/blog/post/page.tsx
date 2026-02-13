@@ -78,7 +78,14 @@ function BlogPostContent() {
         <Separator />
 
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {post.coverImage
+              ? post.content.replace(
+                  new RegExp(`!\\[[^\\]]*\\]\\(${post.coverImage.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\)\\n*`),
+                  ''
+                )
+              : post.content}
+          </ReactMarkdown>
         </div>
       </article>
     </div>
