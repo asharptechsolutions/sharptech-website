@@ -223,8 +223,28 @@ export default function BlogAdminPage() {
     if (!generatedImageUrl) return;
     setSavingToLibrary(true);
     try {
-      const res = await fetch(generatedImageUrl);
-      const blob = await res.blob();
+      // Use canvas to convert image to blob (avoids CORS issues with direct fetch)
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      const blob = await new Promise<Blob>((resolve, reject) => {
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return reject(new Error("No canvas context"));
+          ctx.drawImage(img, 0, 0);
+          canvas.toBlob((b) => {
+            if (b) resolve(b);
+            else reject(new Error("Canvas toBlob failed"));
+          }, "image/png");
+        };
+        img.onerror = () => {
+          // Fallback: try direct fetch if canvas fails
+          fetch(generatedImageUrl).then(r => r.blob()).then(resolve).catch(reject);
+        };
+        img.src = generatedImageUrl;
+      });
       const filename = `${Date.now()}-generated.png`;
       const storageRef = ref(storage, `st_blog/library/${filename}`);
       await uploadBytes(storageRef, blob);
@@ -241,6 +261,7 @@ export default function BlogAdminPage() {
       loadImages();
     } catch (err) {
       console.error("Save failed:", err);
+      alert("Failed to save image. The generated image URL may have expired — try generating again.");
     }
     setSavingToLibrary(false);
   };
