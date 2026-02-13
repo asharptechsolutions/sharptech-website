@@ -167,7 +167,7 @@ export default function Home() {
               </Card>
             ))}
           </div>
-          <div className="flex justify-center mt-10 gap-8 opacity-40">
+          <div className="flex flex-wrap justify-center mt-10 gap-x-6 gap-y-2 opacity-40 px-4">
             {["Next.js", "Firebase", "Stripe", "Tailwind CSS", "TypeScript"].map((tech) => (
               <span key={tech} className="text-sm font-medium tracking-wide">{tech}</span>
             ))}
