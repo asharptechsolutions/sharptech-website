@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Github, Calendar, Users, Briefcase, Brain, TrendingUp, BookOpen, Lightbulb, Award } from "lucide-react";
+import { ExternalLink, Calendar, Users, Briefcase, Brain, TrendingUp, BookOpen, Lightbulb, Award, FolderKanban } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,8 +14,18 @@ const projects = [
     tech: ["React", "Firebase", "Stripe Connect", "Tailwind CSS"],
     icon: Calendar,
     liveUrl: "https://asharptechsolutions.github.io/stylist-scheduler/",
-    repoUrl: "https://github.com/asharptechsolutions/stylist-scheduler",
     highlights: ["Multi-tenant architecture", "Stripe Connect payments", "Phone auth", "Now Serving dashboard"],
+    status: "Production",
+  },
+  {
+    name: "ProjectStatus",
+    tagline: "Visual project tracking for teams & clients",
+    description:
+      "Manage projects with visual canvas workflows, real-time chat, file sharing, and client access via secure codes. Built for freelancers and agencies who need to keep clients in the loop.",
+    tech: ["Next.js", "Firebase", "React Flow", "Tailwind CSS"],
+    icon: FolderKanban,
+    liveUrl: "https://projectstatus.app",
+    highlights: ["Visual canvas workflows", "Real-time chat", "Client access codes", "File sharing"],
     status: "Production",
   },
   {
@@ -26,7 +36,6 @@ const projects = [
     tech: ["Next.js", "Firebase", "Anthropic AI", "Tailwind CSS"],
     icon: Briefcase,
     liveUrl: "https://asharptechsolutions.github.io/job-finder/",
-    repoUrl: "https://github.com/asharptechsolutions/job-finder",
     highlights: ["Multi-source job aggregation", "AI resume parsing", "Skill matching with synonyms", "PDF export"],
     status: "Production",
   },
@@ -38,7 +47,6 @@ const projects = [
     tech: ["Next.js", "Firebase", "Tailwind CSS", "shadcn/ui"],
     icon: TrendingUp,
     liveUrl: "https://asharptechsolutions.github.io/prediction-market/",
-    repoUrl: "https://github.com/asharptechsolutions/prediction-market",
     highlights: ["Real-time odds display", "Market resolution & payouts", "Shareable invite links", "Leaderboard & stats"],
     status: "Production",
   },
@@ -50,7 +58,6 @@ const projects = [
     tech: ["Next.js", "Firebase", "Tailwind CSS", "shadcn/ui"],
     icon: Award,
     liveUrl: "https://asharptechsolutions.github.io/hiring-contests/",
-    repoUrl: "https://github.com/asharptechsolutions/hiring-contests",
     highlights: ["File upload submissions", "Rubric-based scoring", "Contest timers", "Company dashboards"],
     status: "Production",
   },
@@ -62,20 +69,7 @@ const projects = [
     tech: ["Next.js", "Firebase", "Anthropic AI", "shadcn/ui"],
     icon: BookOpen,
     liveUrl: "https://asharptechsolutions.github.io/homeschool-ai/",
-    repoUrl: "https://github.com/asharptechsolutions/homeschool-ai",
     highlights: ["Personalized curriculum", "Multi-child support", "Progress tracking", "State standards alignment"],
-    status: "Production",
-  },
-  {
-    name: "Idea Vault",
-    tagline: "Capture and validate startup ideas with AI",
-    description:
-      "Drop your idea via text, voice, or screenshot. AI-powered research validates market size, analyzes competitors, and scores feasibility. Turn raw inspiration into actionable plans.",
-    tech: ["Next.js", "Firebase", "Tailwind CSS", "shadcn/ui"],
-    icon: Lightbulb,
-    liveUrl: "https://asharptechsolutions.github.io/idea-vault/",
-    repoUrl: "https://github.com/asharptechsolutions/idea-vault",
-    highlights: ["Quick idea capture", "AI validation", "Market research", "Feasibility scoring"],
     status: "Production",
   },
   {
@@ -86,7 +80,6 @@ const projects = [
     tech: ["Next.js", "Firebase", "Anthropic AI", "shadcn/ui"],
     icon: Brain,
     liveUrl: "https://asharptechsolutions.github.io/accelemate/",
-    repoUrl: "https://github.com/asharptechsolutions/accelemate",
     highlights: ["AI application drafts", "Program discovery", "Application tracking", "Founder profiles"],
     status: "Production",
   },
@@ -164,16 +157,10 @@ export default function PortfolioPage() {
 
                 {/* Links */}
                 <div className="flex gap-2 mt-auto pt-2">
-                  <Button asChild size="sm" className="flex-1">
+                  <Button asChild size="sm" className="w-full">
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-1.5" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" size="sm" className="flex-1">
-                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-1.5" />
-                      Source
+                      View Live
                     </a>
                   </Button>
                 </div>
@@ -190,7 +177,7 @@ export default function PortfolioPage() {
           We ship fast. From concept to deployed MVP in days, not months.
         </p>
         <Button asChild size="lg">
-          <a href="/sharptech-website/contact">Get in Touch</a>
+          <a href="/contact">Get in Touch</a>
         </Button>
       </div>
     </div>
