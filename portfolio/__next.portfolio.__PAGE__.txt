@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
 2:I[47257,["/sharptech-website/_next/static/chunks/ff1a16fafef87110.js","/sharptech-website/_next/static/chunks/0bd6498bda341889.js"],"ClientPageRoot"]
-3:I[60145,["/sharptech-website/_next/static/chunks/e14c7b2816393cd5.js","/sharptech-website/_next/static/chunks/71985459fcb3aa38.js","/sharptech-website/_next/static/chunks/4fae38cd9034ee57.js","/sharptech-website/_next/static/chunks/fe7760e6cbe25f59.js"],"default"]
+3:I[60145,["/sharptech-website/_next/static/chunks/e14c7b2816393cd5.js","/sharptech-website/_next/static/chunks/71985459fcb3aa38.js","/sharptech-website/_next/static/chunks/4fae38cd9034ee57.js","/sharptech-website/_next/static/chunks/fb7f7a9415a538bc.js"],"default"]
 6:I[97367,["/sharptech-website/_next/static/chunks/ff1a16fafef87110.js","/sharptech-website/_next/static/chunks/0bd6498bda341889.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"buildId":"1hQ5EDK4Z-fieUtIJIfD_","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/sharptech-website/_next/static/chunks/fe7760e6cbe25f59.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"oQw6SHfdNlx3-lu7WtoDe","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/sharptech-website/_next/static/chunks/fb7f7a9415a538bc.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:{}
 8:null
