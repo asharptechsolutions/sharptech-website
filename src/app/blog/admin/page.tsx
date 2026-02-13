@@ -53,7 +53,20 @@ export default function BlogAdminPage() {
   // Image state
   const [images, setImages] = useState<BlogImage[]>([]);
   const [genPrompt, setGenPrompt] = useState("");
-  const [genModel, setGenModel] = useState("flux-pro");
+  const FAL_MODELS = [
+    { id: "fal-ai/flux-pro/v1.1", name: "FLUX Pro v1.1", desc: "Best quality" },
+    { id: "fal-ai/flux-pro/v1.1-ultra", name: "FLUX Pro Ultra", desc: "Highest resolution" },
+    { id: "fal-ai/flux-pro", name: "FLUX Pro", desc: "Original Pro" },
+    { id: "fal-ai/flux/dev", name: "FLUX Dev", desc: "Development model" },
+    { id: "fal-ai/flux/schnell", name: "FLUX Schnell", desc: "Fast & cheap" },
+    { id: "fal-ai/flux-realism", name: "FLUX Realism", desc: "Photorealistic" },
+    { id: "fal-ai/recraft-v3", name: "Recraft V3", desc: "Design & illustration" },
+    { id: "fal-ai/stable-diffusion-v35-large", name: "SD 3.5 Large", desc: "Stability AI latest" },
+    { id: "fal-ai/aura-flow", name: "AuraFlow", desc: "Open source, fast" },
+    { id: "fal-ai/kolors", name: "Kolors", desc: "Kwai, vibrant colors" },
+    { id: "fal-ai/flux-lora", name: "FLUX LoRA", desc: "Custom fine-tuned" },
+  ];
+  const [genModel, setGenModel] = useState("fal-ai/flux-pro/v1.1");
   const [genSize, setGenSize] = useState("landscape_16_9");
   const [generating, setGenerating] = useState(false);
   const [generatedImageUrl, setGeneratedImageUrl] = useState<string | null>(null);
@@ -193,9 +206,7 @@ export default function BlogAdminPage() {
     setGenerating(true);
     setGeneratedImageUrl(null);
     try {
-      const endpoint = genModel === "flux-pro"
-        ? "https://fal.run/fal-ai/flux-pro/v1.1"
-        : "https://fal.run/fal-ai/flux/schnell";
+      const endpoint = `https://fal.run/${genModel}`;
       const res = await fetch(endpoint, {
         method: "POST",
         headers: {
@@ -442,12 +453,15 @@ export default function BlogAdminPage() {
               />
               <div className="flex flex-wrap gap-3">
                 <Select value={genModel} onValueChange={setGenModel}>
-                  <SelectTrigger className="w-[200px]">
+                  <SelectTrigger className="w-[240px]">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="flux-pro">FLUX Pro v1.1</SelectItem>
-                    <SelectItem value="flux-schnell">FLUX Schnell (fast)</SelectItem>
+                    {FAL_MODELS.map((m) => (
+                      <SelectItem key={m.id} value={m.id}>
+                        {m.name} — {m.desc}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 <Select value={genSize} onValueChange={setGenSize}>
