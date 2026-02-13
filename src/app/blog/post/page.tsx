@@ -19,6 +19,7 @@ interface BlogPost {
   tags: string[];
   publishedAt: { seconds: number };
   author?: string;
+  coverImage?: string;
 }
 
 function BlogPostContent() {
@@ -63,6 +64,16 @@ function BlogPostContent() {
             </div>
           )}
         </div>
+
+        {post.coverImage && (
+          <div className="relative w-full rounded-lg overflow-hidden max-h-96">
+            <img
+              src={post.coverImage}
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
 
         <Separator />
 
