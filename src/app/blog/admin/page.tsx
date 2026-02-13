@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Plus, Trash2, LogIn, FileText, Pencil, X, Eye, EyeOff } from "lucide-react";
+import { Plus, Trash2, LogIn, FileText, Pencil, X, Eye, EyeOff, BookOpen } from "lucide-react";
 import { MarkdownEditor } from "@/components/markdown-editor";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -247,7 +247,7 @@ export default function BlogAdminPage() {
                   {p.published ? "Published" : "Draft"}
                 </Badge>
                 <Button variant="ghost" size="icon" title="Preview" onClick={() => handlePreview(p.id)}>
-                  <Eye className="h-4 w-4" />
+                  <BookOpen className="h-4 w-4" />
                 </Button>
                 <Button variant="ghost" size="icon" title={p.published ? "Unpublish" : "Publish"} onClick={() => handleTogglePublish(p.id, p.published)}>
                   {p.published ? <EyeOff className="h-4 w-4 text-amber-500" /> : <Eye className="h-4 w-4 text-green-600" />}
